@@ -1,0 +1,24 @@
+{
+  "name": "basic",
+  "version": "1.0.0",
+  "description": "Ad webpack babel demo",
+  "main": "index.js",
+  "scripts": {
+    "dir": "dir",
+    "webpack": "webpack",
+    "eslint": "eslint *.js --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maurice",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^3.7.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.9.0",
+    "eslint-plugin-react": "^7.4.0"
+  }
+}
