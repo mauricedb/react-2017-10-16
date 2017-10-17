@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 
 import Cat from "./Cat";
 import Dog from "./Dog";
@@ -35,6 +35,7 @@ class App extends Component {
               <Route path="/cat/:catName" exact component={Cat} />
               <Route path="/dog" component={Dog} />
               <Route path="/dog" component={Cat} />
+              <Redirect to="cat/Zorro" />
             </Switch>
           </div>
         </BrowserRouter>
