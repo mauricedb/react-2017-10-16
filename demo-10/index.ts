@@ -10,36 +10,36 @@ class Options {
 }
 
 class Calculator {
-  // prefix : string;
-  // constructor(prefix: string) {
-  //   this.prefix = prefix;
-  // }
+  constructor(private readonly resultEl) {}
 
-  // constructor(private readonly  prefix: string) {
-  // }
-
-  constructor(options: Options) {}
-
-  add(x: number, y: number): number {
+  add(x, y) {
     return x + y;
   }
-  subtract(x: number, y: number): number {
+  subtract(x, y) {
     return x - y;
   }
+
+  print(result) {
+    this.resultEl.textContent = result;
+  }
 }
+
+const calculator = new Calculator(resultEl);
 
 addEl.addEventListener("click", () => {
   const x = +xEl.value;
   const y = +yEl.value;
-  const result = new Calculator({ prefix: "" }).add(x, y);
-  resultEl.textContent = result.toString();
+
+  const result = calculator.add(x, y);
+  calculator.print(result);
 });
 
 subtractEl.addEventListener("click", () => {
   const x = +xEl.value;
   const y = +yEl.value;
-  const result = new Calculator({ prefix: "" }).subtract(x, y);
-  resultEl.textContent = result.toString();
+
+  const result = calculator.subtract(x, y);
+  calculator.print(result);
 });
 
 class Person {
@@ -48,7 +48,15 @@ class Person {
 }
 
 class Cat {
+  type = "cat";
   name: string;
+  sleep() {}
+}
+
+class Dog {
+  type = "dog";
+  name: string;
+  bark() {}
 }
 
 interface HasName {
@@ -59,11 +67,12 @@ function printIt(o: HasName) {
   console.log(o.name);
 }
 
-printIt(new Person());
-
 function create(o: boolean): Person | Cat {
   if (o) return new Person();
   return new Cat();
 }
 
+printIt(new Person());
 printIt(create(true));
+printIt(null);
+printIt(undefined);

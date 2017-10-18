@@ -9,13 +9,8 @@ var Options = /** @class */ (function () {
     return Options;
 }());
 var Calculator = /** @class */ (function () {
-    // prefix : string;
-    // constructor(prefix: string) {
-    //   this.prefix = prefix;
-    // }
-    // constructor(private readonly  prefix: string) {
-    // }
-    function Calculator(options) {
+    function Calculator(resultEl) {
+        this.resultEl = resultEl;
     }
     Calculator.prototype.add = function (x, y) {
         return x + y;
@@ -23,19 +18,23 @@ var Calculator = /** @class */ (function () {
     Calculator.prototype.subtract = function (x, y) {
         return x - y;
     };
+    Calculator.prototype.print = function (result) {
+        this.resultEl.textContent = result;
+    };
     return Calculator;
 }());
+var calculator = new Calculator(resultEl);
 addEl.addEventListener("click", function () {
     var x = +xEl.value;
     var y = +yEl.value;
-    var result = new Calculator({ prefix: "" }).add(x, y);
-    resultEl.textContent = result.toString();
+    var result = calculator.add(x, y);
+    calculator.print(result);
 });
 subtractEl.addEventListener("click", function () {
     var x = +xEl.value;
     var y = +yEl.value;
-    var result = new Calculator({ prefix: "" }).subtract(x, y);
-    resultEl.textContent = result.toString();
+    var result = calculator.subtract(x, y);
+    calculator.print(result);
 });
 var Person = /** @class */ (function () {
     function Person() {
@@ -44,16 +43,27 @@ var Person = /** @class */ (function () {
 }());
 var Cat = /** @class */ (function () {
     function Cat() {
+        this.type = "cat";
     }
+    Cat.prototype.sleep = function () { };
     return Cat;
+}());
+var Dog = /** @class */ (function () {
+    function Dog() {
+        this.type = "dog";
+    }
+    Dog.prototype.bark = function () { };
+    return Dog;
 }());
 function printIt(o) {
     console.log(o.name);
 }
-printIt(new Person());
 function create(o) {
     if (o)
         return new Person();
     return new Cat();
 }
+printIt(new Person());
 printIt(create(true));
+printIt(null);
+printIt(undefined);
