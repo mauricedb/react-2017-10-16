@@ -1,0 +1,22 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "demo-01/package.json",
+        "demo-02/basic/package.json",
+        "demo-02/cra/package.json",
+        "demo-03/package.json",
+        "demo-04/package.json",
+        "demo-05/package.json",
+        "demo-06/ajax/package.json",
+        "demo-06/rx-demo/package.json",
+        "demo-07/package.json",
+        "demo-08/package.json",
+        "demo-09/cra/package.json",
+        "demo-09/ts-react/package.json",
+        "demo-09/ts/package.json",
+        "demo-10/package.json"
+      ]
+    }
+  }
+}
